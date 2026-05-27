@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="七子傲">
+  <defs>
+    <linearGradient id="g" x1="10" x2="54" y1="8" y2="58" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#00c7ff"/>
+      <stop offset="0.52" stop-color="#0071e3"/>
+      <stop offset="1" stop-color="#7b61ff"/>
+    </linearGradient>
+  </defs>
+  <rect width="64" height="64" rx="16" fill="url(#g)"/>
+  <path fill="#fff" d="M18 18h28v7H31.4l-1.2 7H45v7H29l-1.2 7H17v-7h3.5l2.4-14H18v-7Z"/>
+</svg>

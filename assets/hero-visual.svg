@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 980" role="img" aria-label="七子傲博客抽象视觉">
+  <defs>
+    <linearGradient id="bg" x1="120" x2="790" y1="40" y2="930" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#fbfbfd"/>
+      <stop offset="0.42" stop-color="#edf5ff"/>
+      <stop offset="1" stop-color="#f5f5f7"/>
+    </linearGradient>
+    <linearGradient id="blue" x1="200" x2="720" y1="190" y2="760" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#31c8ff"/>
+      <stop offset="0.48" stop-color="#0071e3"/>
+      <stop offset="1" stop-color="#7b61ff"/>
+    </linearGradient>
+    <filter id="shadow" x="-30%" y="-30%" width="160%" height="160%">
+      <feDropShadow dx="0" dy="36" stdDeviation="36" flood-color="#001a38" flood-opacity="0.18"/>
+    </filter>
+    <filter id="soft" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="24"/>
+    </filter>
+  </defs>
+  <rect width="900" height="980" fill="url(#bg)"/>
+  <circle cx="720" cy="180" r="128" fill="#dff4ff" filter="url(#soft)"/>
+  <circle cx="160" cy="760" r="150" fill="#ede8ff" filter="url(#soft)"/>
+  <g filter="url(#shadow)">
+    <rect x="160" y="140" width="580" height="700" rx="58" fill="rgba(255,255,255,0.78)" stroke="rgba(255,255,255,0.9)" stroke-width="2"/>
+    <rect x="205" y="195" width="490" height="122" rx="34" fill="#fff"/>
+    <rect x="235" y="230" width="240" height="18" rx="9" fill="#1d1d1f"/>
+    <rect x="235" y="266" width="360" height="14" rx="7" fill="#b7b7bd"/>
+    <rect x="205" y="355" width="230" height="185" rx="34" fill="url(#blue)"/>
+    <path fill="#fff" fill-opacity="0.95" d="M250 405h115v26h-57l-5 28h58v26h-63l-5 26h-45l5-26h-20v-26h25l5-28h-13Z"/>
+    <rect x="465" y="355" width="230" height="185" rx="34" fill="#111114"/>
+    <rect x="500" y="404" width="150" height="16" rx="8" fill="#fff"/>
+    <rect x="500" y="440" width="112" height="12" rx="6" fill="#8f8f99"/>
+    <rect x="500" y="478" width="72" height="28" rx="14" fill="#0071e3"/>
+    <rect x="205" y="578" width="490" height="92" rx="30" fill="#fff"/>
+    <rect x="238" y="612" width="210" height="15" rx="8" fill="#1d1d1f"/>
+    <rect x="238" y="643" width="330" height="11" rx="6" fill="#c7c7cc"/>
+    <rect x="205" y="702" width="490" height="92" rx="30" fill="#fff"/>
+    <rect x="238" y="736" width="250" height="15" rx="8" fill="#1d1d1f"/>
+    <rect x="238" y="767" width="280" height="11" rx="6" fill="#c7c7cc"/>
+  </g>
+</svg>

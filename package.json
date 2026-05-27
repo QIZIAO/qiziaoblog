@@ -1,0 +1,14 @@
+{
+  "name": "qiziaoblog",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "test": "node tests/site.test.mjs",
+    "deploy": "npm run build && wrangler pages deploy dist --project-name qiziaoblog --commit-dirty=true"
+  },
+  "devDependencies": {
+    "wrangler": "^4.95.0"
+  }
+}
