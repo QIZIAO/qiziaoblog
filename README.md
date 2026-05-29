@@ -1,48 +1,183 @@
 # 七子傲个人博客
 
-这是 `qiziaoblog.cc.cd` 的个人博客静态网站，可以直接部署到 Cloudflare Pages 免费托管。
+这是 `qiziaoblog.cc.cd` 的个人博客和轻量 CMS。站点部署在 Cloudflare Pages，动态数据使用 Cloudflare KV，图片使用 Cloudflare R2，代码托管在 GitHub。
 
-## 本地预览
+线上地址：
+
+- 主域名：https://qiziaoblog.cc.cd/
+- GitHub：https://github.com/QIZIAO/qiziaoblog
+
+## 当前功能
+
+- 个人博客首页、文章归档、作品页、关于页、工具页、留言板
+- 首页计算机科学风格动态视觉区
+- Markdown 文章编辑器
+- 实时预览、换行预览、代码块样式、复制代码按钮
+- 编辑器工具栏：标题、加粗、列表、链接、代码块、插图
+- 本地草稿保存和云端自动保存
+- 封面图和文章插图上传到 Cloudflare R2
+- 媒体库：查看、复制链接、删除图片
+- 文章公开、草稿、隐藏、置顶
+- 草稿/隐藏文章临时预览链接
+- 文章目录、上一篇/下一篇、相关文章推荐
+- 浏览量、点赞数、评论、留言
+- 评论和留言基础限流防刷
+- 管理后台仪表盘、文章筛选、留言/评论管理、管理员改密
+- RSS、Sitemap、robots.txt、404 页面
+- GitHub Actions 自动部署到 Cloudflare Pages
+
+## 项目结构
+
+```text
+.
+├── index.html              # 首页
+├── writing.html            # 文章归档
+├── projects.html           # 作品页
+├── about.html              # 关于页
+├── guestbook.html          # 留言板
+├── uses.html               # 工具页
+├── admin.html              # 管理后台
+├── functions-worker.js     # Cloudflare Pages Functions / Worker 逻辑
+├── assets/
+│   ├── main.js             # 前端交互和后台 CMS 逻辑
+│   ├── styles.css          # 全站样式
+│   └── post.css            # 文章页样式
+├── posts/                  # 静态示例文章
+├── scripts/build.mjs       # 构建脚本
+├── tests/site.test.mjs     # 站点测试
+├── wrangler.toml           # Cloudflare 资源绑定
+└── .github/workflows/      # GitHub Actions 自动部署
+```
+
+## 本地开发
+
+安装依赖：
+
+```powershell
+npm install
+```
+
+运行测试：
+
+```powershell
+npm test
+```
+
+构建静态产物：
+
+```powershell
+npm run build
+```
+
+本地预览静态页面：
 
 ```powershell
 python -m http.server 8788
 ```
 
-然后访问 `http://localhost:8788`。
+然后访问：
 
-## Cloudflare Pages 部署
+```text
+http://127.0.0.1:8788/
+```
 
-1. 把 `D:\wangzhan` 目录上传到 GitHub 新仓库。
-2. 打开 Cloudflare Dashboard，进入 `Workers & Pages`。
-3. 选择 `Create application`，再选择 `Pages`，连接你的 GitHub 仓库。
-4. 构建设置：
-   - Framework preset: `None`
-   - Build command: 留空
-   - Build output directory: `/`
-5. 部署完成后，在 Pages 项目的 `Custom domains` 添加 `qiziaoblog.cc.cd`。
-6. 如果 Cloudflare 提示添加 DNS 记录，按提示添加 CNAME 到 Pages 默认域名。
+注意：本地静态预览不包含 Cloudflare KV/R2 动态接口。后台发布、评论、图片上传等功能需要部署到 Cloudflare Pages 后使用。
 
-## 写新文章
+## Cloudflare 配置
 
-1. 在 `posts` 目录新建一个 `.html` 文件。
-2. 复制现有文章模板并修改标题、日期和内容。
-3. 打开 `assets/posts.js`，把新文章加入 `window.BLOG_POSTS` 数组。
+`wrangler.toml` 当前绑定：
 
-## 后续可扩展
+```toml
+name = "qiziaoblog"
+compatibility_date = "2026-05-27"
+pages_build_output_dir = "dist"
 
-- RSS 订阅
-- 标签和归档页
-- Markdown 写作流程
-- 评论区
-- Cloudflare Web Analytics
+[[kv_namespaces]]
+binding = "BLOG_POSTS_KV"
+id = "25049c6175f749d88137c34d7f79a9da"
 
-## 动态功能
+[[r2_buckets]]
+binding = "IMAGES"
+bucket_name = "qiziaoblog-images"
+```
 
-当前动态功能使用 Cloudflare Pages Functions + KV：
+Cloudflare Pages 需要配置 Secret：
 
-- 管理员发布、编辑、删除文章
-- 文章评论
-- 访客留言
-- 点赞和浏览量
+```text
+ADMIN_PASSWORD
+```
 
-后续如果要更强的查询、审核、批量管理，可以把评论和文章迁移到 Cloudflare D1；如果要上传图片和附件，可以接 Cloudflare R2；如果要自动化部署，可以把本目录推到 GitHub 并在 Cloudflare Pages 里连接仓库。
+这个值是后台管理员密钥。后台改密后，新密码会写入 KV 的 `admin:password`，并优先于 `ADMIN_PASSWORD`。
+
+## GitHub 自动部署
+
+仓库已包含 GitHub Actions 工作流：
+
+```text
+.github/workflows/deploy.yml
+```
+
+每次推送到 `master` 或 `main` 时会自动：
+
+1. 安装依赖
+2. 运行测试
+3. 构建 `dist`
+4. 部署到 Cloudflare Pages
+
+GitHub 仓库需要配置 Actions Secrets：
+
+```text
+CLOUDFLARE_API_TOKEN
+CLOUDFLARE_ACCOUNT_ID
+```
+
+当前 Cloudflare Account ID：
+
+```text
+514952191ab9259365944acef7a6654d
+```
+
+## 常用命令
+
+手动部署：
+
+```powershell
+npm run build
+npx wrangler pages deploy dist --project-name qiziaoblog --commit-dirty=true
+```
+
+推送到 GitHub 并触发自动部署：
+
+```powershell
+git add .
+git commit -m "Update site"
+git push
+```
+
+## 后台使用
+
+后台地址：
+
+```text
+https://qiziaoblog.cc.cd/admin.html
+```
+
+后台可以：
+
+- 新建、编辑、删除文章
+- 保存草稿、隐藏文章、置顶文章
+- 上传封面图和文章插图
+- 管理媒体库
+- 生成草稿预览链接
+- 查看浏览量、点赞数、评论、留言
+- 修改管理员密码
+
+## 数据存储
+
+- 文章索引、动态文章内容、评论、留言、点赞、浏览量、自动保存草稿：Cloudflare KV
+- 封面图、文章插图：Cloudflare R2
+- 静态页面和资源：Cloudflare Pages
+
+## 备注
+
+媒体库删除图片时，如果已发布文章还引用这张图，文章里的图片会失效。删除前建议确认图片没有被文章使用。
