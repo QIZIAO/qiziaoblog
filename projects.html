@@ -1,0 +1,79 @@
+﻿<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="七子傲的作品页：正在构建的个人博客、写作系统和项目记录。">
+    <meta property="og:title" content="作品 | 七子傲">
+    <meta property="og:description" content="七子傲正在构建的项目和作品。">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://qiziaoblog.cc.cd/projects.html">
+    <title>作品 | 七子傲</title>
+    <link rel="canonical" href="https://qiziaoblog.cc.cd/projects.html">
+    <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="/assets/styles.css?v=20260528-glass4">
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="/" aria-label="七子傲首页">
+        <img src="/assets/logo-mark.svg" alt="" width="34" height="34">
+        <span>七子傲</span>
+      </a>
+      <nav class="nav" aria-label="主导航">
+        <a href="/writing.html">文章</a>
+        <a aria-current="page" href="/projects.html">作品</a>
+        <a href="/about.html">关于</a>
+        <a href="/guestbook.html">留言</a>
+        <a href="/uses.html">工具</a>
+      </nav>
+      <button class="theme-toggle" type="button" aria-label="切换深浅色模式" aria-pressed="false">
+        <span class="theme-toggle-icon" aria-hidden="true"></span>
+      </button>
+    </header>
+
+    <main>
+      <section class="page-hero">
+        <p class="eyebrow">PROJECTS</p>
+        <h1>作品与项目</h1>
+        <p>这里会收集正在做、已经做完、以及值得长期维护的东西。</p>
+      </section>
+
+      <section class="section project-grid project-page-grid project-board">
+        <article class="project-card large">
+          <span>Live</span>
+          <h2>七子傲个人博客</h2>
+          <p>一个部署在 Cloudflare Pages 上的静态个人博客，包含自定义域名、RSS、站点地图、文章归档和作品页。</p>
+          <a class="text-link" href="/">查看首页</a>
+        </article>
+        <article class="project-card large">
+          <span>Planning</span>
+          <h2>写作工作流</h2>
+          <p>把日常记录、项目复盘和文章发布整理成稳定流程，后续计划支持 Markdown 和更方便的归档。</p>
+          <a class="text-link" href="/posts/roadmap.html">查看计划</a>
+        </article>
+        <article class="project-card large">
+          <span>Interactive</span>
+          <h2>留言与评论系统</h2>
+          <p>用 Cloudflare Pages Functions 和 KV 实现访客留言、文章评论、点赞和浏览量。</p>
+          <a class="text-link" href="/guestbook.html">去留言</a>
+        </article>
+        <article class="project-card large">
+          <span>Admin</span>
+          <h2>文章发布后台</h2>
+          <p>管理员密码发布，普通访客只能阅读和互动，不能写入文章。</p>
+          <a class="text-link" href="/admin.html">进入后台</a>
+        </article>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <span>© <span id="year"></span> 七子傲</span>
+      <div class="footer-links">
+        <a href="/writing.html">文章</a>
+        <a href="/feed.xml">RSS</a>
+      </div>
+    </footer>
+
+    <script src="/assets/main.js?v=20260528-glass4"></script>
+  </body>
+</html>

@@ -1,0 +1,56 @@
+﻿<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="七子傲的留言板，欢迎留下想法、建议和问候。">
+    <title>留言板 | 七子傲</title>
+    <link rel="canonical" href="https://qiziaoblog.cc.cd/guestbook.html">
+    <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="/assets/styles.css?v=20260528-glass4">
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="/" aria-label="七子傲首页">
+        <img src="/assets/logo-mark.svg" alt="" width="34" height="34">
+        <span>七子傲</span>
+      </a>
+      <nav class="nav" aria-label="主导航">
+        <a href="/writing.html">文章</a>
+        <a href="/projects.html">作品</a>
+        <a href="/about.html">关于</a>
+        <a href="/uses.html">工具</a>
+      </nav>
+      <button class="theme-toggle" type="button" aria-label="切换深浅色模式" aria-pressed="false">
+        <span class="theme-toggle-icon" aria-hidden="true"></span>
+      </button>
+    </header>
+
+    <main>
+      <section class="page-hero">
+        <p class="eyebrow">GUESTBOOK</p>
+        <h1>留言板</h1>
+        <p>如果你路过这里，可以留下一句建议、问题或问候。</p>
+      </section>
+      <section class="section compact-section">
+        <form id="guestbook-form" class="comment-form guestbook-form">
+          <input name="name" maxlength="24" placeholder="你的名字" required>
+          <textarea name="content" rows="4" maxlength="500" placeholder="想说的话" required></textarea>
+          <button class="small-button" type="submit">提交留言</button>
+          <p id="guestbook-status" aria-live="polite"></p>
+        </form>
+        <div id="guestbook-list" class="comment-list guestbook-list"></div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <span>© <span id="year"></span> 七子傲</span>
+      <div class="footer-links">
+        <a href="/writing.html">文章</a>
+        <a href="/feed.xml">RSS</a>
+      </div>
+    </footer>
+
+    <script src="/assets/main.js?v=20260528-glass4"></script>
+  </body>
+</html>

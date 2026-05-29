@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" role="img" aria-label="七子傲博客分享图">
+  <defs>
+    <linearGradient id="bg" x1="160" x2="1040" y1="0" y2="630" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#ffffff"/>
+      <stop offset="0.48" stop-color="#eef6ff"/>
+      <stop offset="1" stop-color="#f5f5f7"/>
+    </linearGradient>
+    <linearGradient id="mark" x1="0" x2="120" y1="0" y2="120" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#31c8ff"/>
+      <stop offset="0.5" stop-color="#0071e3"/>
+      <stop offset="1" stop-color="#7b61ff"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <rect x="88" y="86" width="1024" height="458" rx="46" fill="rgba(255,255,255,0.78)" stroke="rgba(29,29,31,0.1)"/>
+  <rect x="150" y="148" width="120" height="120" rx="30" fill="url(#mark)"/>
+  <path fill="#fff" d="M184 184h52v15h-27l-3 17h28v15h-30l-3 17h-21l3-17h-12v-15h15l3-17h-5Z"/>
+  <text x="150" y="362" fill="#1d1d1f" font-family="Arial, 'Microsoft YaHei', sans-serif" font-size="98" font-weight="800">七子傲</text>
+  <text x="154" y="432" fill="#6e6e73" font-family="Arial, 'Microsoft YaHei', sans-serif" font-size="32" font-weight="700">技术 / 作品 / 写作 / 长期思考</text>
+  <text x="154" y="492" fill="#0071e3" font-family="Arial, 'Microsoft YaHei', sans-serif" font-size="26" font-weight="700">qiziaoblog.cc.cd</text>
+</svg>

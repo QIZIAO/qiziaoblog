@@ -1,0 +1,69 @@
+﻿<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="七子傲的文章归档：技术实践、建站记录、长期写作和个人复盘。">
+    <meta property="og:title" content="文章 | 七子傲">
+    <meta property="og:description" content="七子傲的文章归档。">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://qiziaoblog.cc.cd/writing.html">
+    <title>文章 | 七子傲</title>
+    <link rel="canonical" href="https://qiziaoblog.cc.cd/writing.html">
+    <link rel="alternate" type="application/rss+xml" title="七子傲 RSS" href="/feed.xml">
+    <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="/assets/styles.css?v=20260528-glass4">
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="/" aria-label="七子傲首页">
+        <img src="/assets/logo-mark.svg" alt="" width="34" height="34">
+        <span>七子傲</span>
+      </a>
+      <nav class="nav" aria-label="主导航">
+        <a aria-current="page" href="/writing.html">文章</a>
+        <a href="/projects.html">作品</a>
+        <a href="/about.html">关于</a>
+        <a href="/guestbook.html">留言</a>
+        <a href="/uses.html">工具</a>
+      </nav>
+      <button class="theme-toggle" type="button" aria-label="切换深浅色模式" aria-pressed="false">
+        <span class="theme-toggle-icon" aria-hidden="true"></span>
+      </button>
+    </header>
+
+    <main>
+      <section class="page-hero">
+        <p class="eyebrow">WRITING</p>
+        <h1>文章归档</h1>
+        <p>把技术实践、建站记录和长期思考放在同一个地方，方便以后回看。</p>
+      </section>
+
+      <section class="section compact-section">
+        <div class="archive-tools" aria-label="文章筛选工具">
+          <label class="search-field">
+            <span>搜索文章</span>
+            <input id="post-search" type="search" placeholder="输入关键词、标题或标签">
+          </label>
+          <div id="tag-filters" class="tag-filters" aria-label="按标签筛选"></div>
+          <div class="archive-actions">
+            <p id="archive-count" aria-live="polite"></p>
+            <button id="clear-filters" class="small-button" type="button">清空筛选</button>
+          </div>
+        </div>
+        <div id="archive-list" class="archive-list"></div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <span>© <span id="year"></span> 七子傲</span>
+      <div class="footer-links">
+        <a href="/feed.xml">RSS</a>
+        <a href="/sitemap.xml">Sitemap</a>
+      </div>
+    </footer>
+
+    <script src="/assets/posts.js?v=20260528-glass4"></script>
+    <script src="/assets/main.js?v=20260528-glass4"></script>
+  </body>
+</html>

@@ -35,3 +35,14 @@ python -m http.server 8788
 - Markdown 写作流程
 - 评论区
 - Cloudflare Web Analytics
+
+## 动态功能
+
+当前动态功能使用 Cloudflare Pages Functions + KV：
+
+- 管理员发布、编辑、删除文章
+- 文章评论
+- 访客留言
+- 点赞和浏览量
+
+后续如果要更强的查询、审核、批量管理，可以把评论和文章迁移到 Cloudflare D1；如果要上传图片和附件，可以接 Cloudflare R2；如果要自动化部署，可以把本目录推到 GitHub 并在 Cloudflare Pages 里连接仓库。

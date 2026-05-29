@@ -1,0 +1,243 @@
+﻿<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="noindex">
+    <title>内容后台 | 七子傲</title>
+    <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="/assets/styles.css?v=20260528-glass4">
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="/" aria-label="七子傲首页">
+        <img src="/assets/logo-mark.svg" alt="" width="34" height="34">
+        <span>七子傲</span>
+      </a>
+      <nav class="nav" aria-label="主导航">
+        <a href="/writing.html">文章</a>
+        <a href="/projects.html">作品</a>
+        <a href="/about.html">关于</a>
+        <a href="/guestbook.html">留言</a>
+        <a href="/uses.html">工具</a>
+      </nav>
+      <button class="theme-toggle" type="button" aria-label="切换深浅色模式" aria-pressed="false">
+        <span class="theme-toggle-icon" aria-hidden="true"></span>
+      </button>
+    </header>
+
+    <main>
+      <section class="page-hero">
+        <p class="eyebrow">ADMIN</p>
+        <h1>内容后台</h1>
+        <p>先输入管理员密钥。验证通过后，才会打开发布、编辑、删除和留言管理功能。</p>
+      </section>
+
+      <section class="section compact-section">
+        <form id="admin-login-form" class="publish-form admin-login-form">
+          <label>
+            <span>管理员密钥</span>
+            <input name="password" type="password" autocomplete="current-password" required placeholder="输入密钥后进入后台">
+          </label>
+          <div class="publish-actions">
+            <button class="button primary" type="submit">进入后台</button>
+            <p id="admin-login-status" aria-live="polite"></p>
+          </div>
+        </form>
+
+        <div id="admin-dashboard" class="admin-dashboard" hidden>
+          <div class="admin-toolbar">
+            <div>
+              <p class="eyebrow">DASHBOARD</p>
+              <h2>管理功能</h2>
+            </div>
+            <button id="admin-logout" class="small-button" type="button">锁定后台</button>
+          </div>
+
+          <div class="admin-stat-grid">
+            <article class="metric-card">
+              <span>Posts</span>
+              <strong id="admin-post-count">0</strong>
+              <p id="admin-post-breakdown">公开 0 / 草稿 0 / 隐藏 0</p>
+            </article>
+            <article class="metric-card">
+              <span>Messages</span>
+              <strong id="admin-message-count">0</strong>
+              <p id="admin-feedback-count">评论 0 / 留言 0</p>
+            </article>
+            <article class="metric-card">
+              <span>Traffic</span>
+              <strong id="admin-view-count">0</strong>
+              <p id="admin-like-count">0 次喜欢</p>
+            </article>
+          </div>
+
+          <form id="admin-password-form" class="publish-form password-panel">
+            <div class="section-heading mini-heading">
+              <div>
+                <p class="eyebrow">SECURITY</p>
+                <h2>修改管理员密码</h2>
+              </div>
+            </div>
+            <div class="form-grid">
+              <label>
+                <span>当前密码</span>
+                <input name="password" type="password" autocomplete="current-password" required readonly>
+              </label>
+              <label>
+                <span>新密码</span>
+                <input name="nextPassword" type="password" autocomplete="new-password" minlength="8" required placeholder="至少 8 位">
+              </label>
+            </div>
+            <div class="publish-actions">
+              <button class="small-button" type="submit">更新密码</button>
+              <p id="admin-password-status" aria-live="polite"></p>
+            </div>
+          </form>
+
+          <form id="publish-form" class="publish-form">
+          <input name="slug" type="hidden">
+          <label>
+            <span>管理员密码</span>
+            <input name="password" type="password" autocomplete="current-password" required readonly>
+          </label>
+          <label>
+            <span>标题</span>
+            <input name="title" type="text" required maxlength="80" placeholder="文章标题">
+          </label>
+          <div class="form-grid">
+            <label>
+              <span>分类</span>
+              <input name="category" type="text" required maxlength="24" placeholder="例如：技术实践">
+            </label>
+            <label>
+              <span>标签</span>
+              <input name="tags" type="text" maxlength="80" placeholder="用逗号分隔">
+            </label>
+          </div>
+          <div class="form-grid">
+            <label>
+              <span>封面图 URL</span>
+              <input name="cover" type="url" placeholder="可选，用于文章顶部视觉">
+            </label>
+            <label>
+              <span>上传封面图</span>
+              <input id="cover-upload" type="file" accept="image/*">
+            </label>
+          </div>
+          <div class="form-grid">
+            <label>
+              <span>发布状态</span>
+              <select name="status">
+                <option value="published">公开发布</option>
+                <option value="draft">保存草稿</option>
+                <option value="hidden">隐藏文章</option>
+              </select>
+            </label>
+          </div>
+          <label class="check-row">
+            <input name="pinned" type="checkbox" value="true">
+            <span>置顶文章</span>
+          </label>
+          <label>
+            <span>摘要</span>
+            <textarea name="summary" rows="3" required maxlength="180" placeholder="一句话说明这篇文章"></textarea>
+          </label>
+          <label>
+            <span>正文 Markdown</span>
+            <div class="editor-toolbar" aria-label="Markdown 工具栏">
+              <button class="small-button" type="button" data-insert-before="## " data-insert-after="">标题</button>
+              <button class="small-button" type="button" data-insert-before="**" data-insert-after="**">加粗</button>
+              <button class="small-button" type="button" data-insert-before="- " data-insert-after="">列表</button>
+              <button class="small-button" type="button" data-insert-before="[" data-insert-after="](https://)">链接</button>
+              <button class="small-button" type="button" data-insert-code>代码</button>
+              <button class="small-button" type="button" data-upload-image>插图</button>
+              <input id="content-image-upload" type="file" accept="image/*" hidden>
+            </div>
+            <textarea name="content" rows="16" required placeholder="# 标题&#10;&#10;直接换行会在预览里换行。&#10;&#10;## 小标题&#10;- 列表第一项&#10;- 列表第二项&#10;&#10;如果要放程序代码，可以用三个反引号包起来：&#10;```&#10;console.log('hello');&#10;```"></textarea>
+          </label>
+          <div class="editor-preview-panel">
+            <div class="section-heading mini-heading">
+              <div>
+                <p class="eyebrow">PREVIEW</p>
+                <h2>实时预览</h2>
+              </div>
+            </div>
+            <div id="markdown-preview" class="markdown-preview empty-state">开始写作后，这里会显示文章预览。</div>
+          </div>
+          <div class="publish-actions">
+            <button class="button primary" type="submit">保存文章</button>
+            <button id="reset-editor" class="small-button" type="button">新建文章</button>
+            <button id="preview-post" class="small-button" type="button">生成预览链接</button>
+            <p id="publish-status" aria-live="polite"></p>
+          </div>
+          <p id="autosave-status" class="form-hint" aria-live="polite">云端自动保存待命。</p>
+        </form>
+
+          <div class="admin-list-panel">
+          <div class="section-heading mini-heading">
+            <div>
+              <p class="eyebrow">MANAGE</p>
+              <h2>文章管理</h2>
+            </div>
+          </div>
+          <div class="admin-filter-bar" aria-label="文章筛选">
+            <label class="search-field">
+              <span>搜索文章</span>
+              <input id="admin-post-search" type="search" placeholder="按标题、摘要、分类或标签搜索">
+            </label>
+            <div id="admin-status-filter" class="tag-filters">
+              <button class="tag-button" type="button" data-status="all" aria-pressed="true">全部</button>
+              <button class="tag-button" type="button" data-status="published">公开</button>
+              <button class="tag-button" type="button" data-status="draft">草稿</button>
+              <button class="tag-button" type="button" data-status="hidden">隐藏</button>
+            </div>
+          </div>
+          <div id="admin-post-list" class="admin-post-list"></div>
+        </div>
+
+          <div class="admin-list-panel">
+            <div class="section-heading mini-heading">
+              <div>
+                <p class="eyebrow">MEDIA</p>
+                <h2>媒体库</h2>
+              </div>
+              <button id="refresh-media" class="small-button" type="button">刷新</button>
+            </div>
+            <div id="media-library" class="media-library"></div>
+          </div>
+
+          <div class="admin-list-panel">
+            <div class="section-heading mini-heading">
+              <div>
+                <p class="eyebrow">MESSAGES</p>
+                <h2>留言管理</h2>
+              </div>
+            </div>
+            <div id="admin-message-list" class="admin-post-list"></div>
+          </div>
+
+          <div class="admin-list-panel">
+            <div class="section-heading mini-heading">
+              <div>
+                <p class="eyebrow">COMMENTS</p>
+                <h2>评论管理</h2>
+              </div>
+            </div>
+            <div id="admin-comment-list" class="admin-post-list"></div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <span>© <span id="year"></span> 七子傲</span>
+      <div class="footer-links">
+        <a href="/writing.html">文章</a>
+        <a href="/feed.xml">RSS</a>
+      </div>
+    </footer>
+
+    <script src="/assets/main.js?v=20260528-glass4"></script>
+  </body>
+</html>

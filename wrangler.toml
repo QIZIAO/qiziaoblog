@@ -1,3 +1,11 @@
 name = "qiziaoblog"
 compatibility_date = "2026-05-27"
 pages_build_output_dir = "dist"
+
+[[kv_namespaces]]
+binding = "BLOG_POSTS_KV"
+id = "25049c6175f749d88137c34d7f79a9da"
+
+[[r2_buckets]]
+binding = "IMAGES"
+bucket_name = "qiziaoblog-images"

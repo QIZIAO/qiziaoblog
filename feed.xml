@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>七子傲</title>
+    <link>https://qiziaoblog.cc.cd/</link>
+    <description>七子傲的个人博客，记录技术、作品、生活观察和长期思考。</description>
+    <language>zh-CN</language>
+    <lastBuildDate>Thu, 28 May 2026 00:00:00 +0800</lastBuildDate>
+    <atom:link href="https://qiziaoblog.cc.cd/feed.xml" rel="self" type="application/rss+xml"/>
+    <item>
+      <title>七子傲：博客正式上线</title>
+      <link>https://qiziaoblog.cc.cd/posts/hello.html</link>
+      <guid>https://qiziaoblog.cc.cd/posts/hello.html</guid>
+      <pubDate>Wed, 27 May 2026 00:00:00 +0800</pubDate>
+      <description>从域名、Cloudflare 到第一版界面，记录这个个人博客开始生长的一天。</description>
+    </item>
+    <item>
+      <title>为什么要保留一个自己的空间</title>
+      <link>https://qiziaoblog.cc.cd/posts/why-blog.html</link>
+      <guid>https://qiziaoblog.cc.cd/posts/why-blog.html</guid>
+      <pubDate>Wed, 27 May 2026 00:00:00 +0800</pubDate>
+      <description>社交平台很快，但个人网站更像一块安静的土地，可以慢慢沉淀真正重要的东西。</description>
+    </item>
+    <item>
+      <title>七子傲的下一步</title>
+      <link>https://qiziaoblog.cc.cd/posts/roadmap.html</link>
+      <guid>https://qiziaoblog.cc.cd/posts/roadmap.html</guid>
+      <pubDate>Wed, 27 May 2026 00:00:00 +0800</pubDate>
+      <description>给网站继续加入 RSS、归档、作品集、评论区和更顺手的写作流程。</description>
+    </item>
+  </channel>
+</rss>

@@ -1,0 +1,70 @@
+﻿<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="七子傲的工具清单：写作、开发、部署和维护个人博客使用的工具。">
+    <meta property="og:title" content="工具 | 七子傲">
+    <meta property="og:description" content="七子傲的写作、开发和部署工具清单。">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://qiziaoblog.cc.cd/uses.html">
+    <title>工具 | 七子傲</title>
+    <link rel="canonical" href="https://qiziaoblog.cc.cd/uses.html">
+    <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="/assets/styles.css?v=20260528-glass4">
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="/" aria-label="七子傲首页">
+        <img src="/assets/logo-mark.svg" alt="" width="34" height="34">
+        <span>七子傲</span>
+      </a>
+      <nav class="nav" aria-label="主导航">
+        <a href="/writing.html">文章</a>
+        <a href="/projects.html">作品</a>
+        <a href="/about.html">关于</a>
+        <a href="/guestbook.html">留言</a>
+        <a aria-current="page" href="/uses.html">工具</a>
+      </nav>
+      <button class="theme-toggle" type="button" aria-label="切换深浅色模式" aria-pressed="false">
+        <span class="theme-toggle-icon" aria-hidden="true"></span>
+      </button>
+    </header>
+
+    <main>
+      <section class="page-hero">
+        <p class="eyebrow">USES</p>
+        <h1>工具清单</h1>
+        <p>记录搭建、维护和写作这个网站时用到的工具。后续会随着实际使用继续更新。</p>
+      </section>
+
+      <section class="section tool-list">
+        <article class="tool-item">
+          <span>Deploy</span>
+          <h2>Cloudflare Pages</h2>
+          <p>负责静态网站托管、自定义域名、HTTPS 证书和全球 CDN。</p>
+        </article>
+        <article class="tool-item">
+          <span>Code</span>
+          <h2>HTML / CSS / JavaScript</h2>
+          <p>第一版保持轻量，不引入复杂框架，方便理解、维护和迁移。</p>
+        </article>
+        <article class="tool-item">
+          <span>Workflow</span>
+          <h2>Git + Wrangler</h2>
+          <p>用 Git 保存版本，用 Wrangler 构建和部署到 Cloudflare Pages。</p>
+        </article>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <span>© <span id="year"></span> 七子傲</span>
+      <div class="footer-links">
+        <a href="/writing.html">文章</a>
+        <a href="/feed.xml">RSS</a>
+      </div>
+    </footer>
+
+    <script src="/assets/main.js?v=20260528-glass4"></script>
+  </body>
+</html>

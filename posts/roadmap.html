@@ -1,4 +1,4 @@
-<!doctype html>
+﻿<!doctype html>
 <html lang="zh-CN">
   <head>
     <meta charset="utf-8">
@@ -6,8 +6,8 @@
     <meta name="description" content="七子傲个人博客后续计划：RSS、归档、作品集、评论区和写作流程。">
     <title>七子傲的下一步 | 七子傲</title>
     <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
-    <link rel="stylesheet" href="/assets/styles.css">
-    <link rel="stylesheet" href="/assets/post.css">
+    <link rel="stylesheet" href="/assets/styles.css?v=20260528-glass4">
+    <link rel="stylesheet" href="/assets/post.css?v=20260528-glass4">
   </head>
   <body>
     <header class="site-header">
@@ -20,14 +20,24 @@
         <a href="/#about">关于</a>
         <a href="/#notes">随笔</a>
       </nav>
+      <button class="theme-toggle" type="button" aria-label="切换深浅色模式" aria-pressed="false">
+        <span class="theme-toggle-icon" aria-hidden="true"></span>
+      </button>
     </header>
 
     <main class="article-shell">
-      <article class="article">
+      <div class="reading-progress" aria-hidden="true">
+        <span id="reading-progress-bar"></span>
+      </div>
+      <article class="article glass-article">
         <a class="back-link" href="/">返回首页</a>
         <p class="eyebrow">Roadmap</p>
         <h1>七子傲的下一步</h1>
         <p class="article-meta">2026-05-27</p>
+        <div class="article-actions" aria-label="文章操作">
+          <button class="small-button favorite-button" type="button" data-favorite-title="七子傲的下一步">收藏文章</button>
+          <button class="small-button copy-link-button" type="button">复制链接</button>
+        </div>
         <p>
           博客的第一版先保证简单、快速、能访问。下一步会围绕阅读体验和维护效率继续增强。
         </p>
@@ -38,7 +48,30 @@
           <li>配置 Cloudflare Web Analytics。</li>
           <li>把文章写作流程改成 Markdown。</li>
         </ul>
+        <div class="article-like-panel">
+          <button class="like-button heart-button" type="button" data-slug="roadmap" aria-label="给文章点赞">
+            <span class="heart-icon" aria-hidden="true">♡</span>
+            <span>喜欢</span>
+            <strong>0</strong>
+          </button>
+        </div>
+        <section class="comment-panel" aria-labelledby="comments-title" data-slug="roadmap">
+          <div class="section-heading mini-heading">
+            <div>
+              <p class="eyebrow">COMMENTS</p>
+              <h2 id="comments-title">评论</h2>
+            </div>
+          </div>
+          <form class="comment-form">
+            <input name="name" maxlength="24" placeholder="你的名字，可留空匿名">
+            <textarea name="content" rows="4" maxlength="500" placeholder="写下你的想法" required></textarea>
+            <button class="small-button" type="submit">提交评论</button>
+          </form>
+          <div class="comment-list"></div>
+        </section>
       </article>
     </main>
+    <button class="back-to-top" type="button" aria-label="返回顶部">↑</button>
+    <script src="/assets/main.js?v=20260528-glass4"></script>
   </body>
 </html>
